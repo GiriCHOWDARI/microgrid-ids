@@ -1,0 +1,29 @@
+[
+  {
+    "timestamp": "2026-03-05T22:01:15.772139",
+    "node_id": 101,
+    "attack_type": 1,
+    "action": "isolate",
+    "description": "Isolating node - Blackhole attack",
+    "severity": "critical",
+    "status": "executed"
+  },
+  {
+    "timestamp": "2026-03-05T22:01:47.853325",
+    "node_id": 101,
+    "attack_type": 0,
+    "action": "none",
+    "description": "Normal traffic",
+    "severity": "low",
+    "status": "executed"
+  },
+  {
+    "timestamp": "2026-03-05T22:04:15.322771",
+    "node_id": 101,
+    "attack_type": 1,
+    "action": "isolate",
+    "description": "Isolating node - Blackhole attack - Repeated attacks",
+    "severity": "critical",
+    "status": "executed"
+  }
+]

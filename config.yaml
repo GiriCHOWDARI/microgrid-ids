@@ -1,0 +1,71 @@
+# Microgrid IDS Configuration
+
+data:
+  raw_path: "data/raw/"
+  processed_path: "data/processed/"
+  features_path: "data/features/"
+  n_samples: 15000
+  n_nodes: 50
+  test_size: 0.2
+  random_state: 42
+
+models:
+  save_path: "models/"
+
+  cnn:
+    filters: [64, 128, 256]
+    kernel_size: 3
+    dropout_rate: 0.5
+    learning_rate: 0.001
+
+  lstm:
+    units: [128, 64, 32]
+    dropout_rate: 0.3
+    return_sequences: true
+    learning_rate: 0.001
+
+  random_forest:
+    n_estimators: 100
+    max_depth: 20
+    min_samples_split: 5
+    min_samples_leaf: 2
+
+  xgboost:
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+
+  passive_aggressive:
+    C: 1.0
+    max_iter: 1000
+    tol: 0.001
+
+ensemble:
+  weights:
+    cnn: 1.0
+    lstm: 1.0
+    random_forest: 1.0
+    xgboost: 1.0
+    passive_aggressive: 0.8
+
+training:
+  batch_size: 32
+  epochs: 15
+  validation_split: 0.2
+  early_stopping_patience: 5
+
+app:
+  host: "0.0.0.0"
+  port: 5000
+  debug: false
+
+mitigation:
+  node_isolation: true
+  traffic_rerouting: true
+  rate_limiting: true
+  alert_threshold: 0.8
+
+explainability:
+  use_shap: true
+  use_lime: true
+  max_display_features: 10
